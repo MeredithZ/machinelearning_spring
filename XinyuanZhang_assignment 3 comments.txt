@@ -1,0 +1,44 @@
+Temporal Validation
+4/10
+So you do evaluate the classifiers but you just do GridSearchCV on it(effectively
+KFold cross validation with grid search). This
+is not the same as temporal validation! THe reason we cant use
+KFold cross validation for this problem is because this full_funded dataset
+has a time component - the projects get funded more often during certian months
+and the raw total number of funded projects per month increases as years go by.
+
+
+Evaluation Metrics
+5/5
+Missing precision/recall at k%. You have precision at given probability cutoff thresholds.
+This is similar to precision at k% but not quite the same.
+Checkout Rayid's code on precision_at_k:
+https://github.com/rayidghani/magicloops/blob/master/mlfunctions.py#L142
+
+
+Classifier Hyperparameters
+1/2
+Your hyperparameters can be a bit more thorough:
+    grid['LR'] = {'penalty': ['l1', 'l2']}
+    grid['DT'] = {'max_depth': [1, 20, 50]}
+    grid['KNN'] = {'n_neighbors': [1, 5, 10]}
+    grid['SVM'] = {'C': [0.1, 0.5, 1]}
+    grid['RF'] = {'n_estimators': [1, 5, 10]}
+    grid['GB'] = {'n_estimators': [1, 5, 10]}
+    grid['BG'] = {'n_estimators': [1, 5, 10]}
+There are way more parameters to cross validate over than just these!
+
+Classifier Results
+3/3
+
+
+Writeup:
+2/10
+I can't really give you points for this b/c you don't have a writeup.
+There is so much information to unpack from your plots, your tables, etc.
+What do the results tell you? What od the plots tell you?
+What are you even trying to solve in this problem? What metrics do you care about?
+Why?
+
+Total:
+15/30
